@@ -248,18 +248,19 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         sideMenuContainerView.backgroundColor = UIColor.clearColor()
         sideMenuContainerView.clipsToBounds = false
         sideMenuContainerView.layer.masksToBounds = false
-        sideMenuContainerView.layer.shadowOffset = (menuPosition == .Left) ? CGSizeMake(1.0, 1.0) : CGSizeMake(-1.0, -1.0)
-        sideMenuContainerView.layer.shadowRadius = 1.0
-        sideMenuContainerView.layer.shadowOpacity = 0.125
-        sideMenuContainerView.layer.shadowPath = UIBezierPath(rect: sideMenuContainerView.bounds).CGPath
+//        sideMenuContainerView.layer.shadowOffset = (menuPosition == .Left) ? CGSizeMake(1.0, 1.0) : CGSizeMake(-1.0, -1.0)
+//        sideMenuContainerView.layer.shadowRadius = 1.0
+//        sideMenuContainerView.layer.shadowOpacity = 0.125
+//        sideMenuContainerView.layer.shadowPath = UIBezierPath(rect: sideMenuContainerView.bounds).CGPath
         
         sourceView.addSubview(sideMenuContainerView)
         
         if (NSClassFromString("UIVisualEffectView") != nil) {
             // Add blur view
             let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: blurStyle)) as UIVisualEffectView
-            visualEffectView.frame = sideMenuContainerView.bounds
-            visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+//            visualEffectView.frame = sideMenuContainerView.bounds
+//            visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+            visualEffectView.frame = CGRectMake(0, 0, 270, sideMenuContainerView.bounds.height)
             sideMenuContainerView.addSubview(visualEffectView)
         }
         else {
